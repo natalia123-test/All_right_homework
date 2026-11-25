@@ -1,0 +1,23 @@
+{
+  "name": "all-right-homework-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright end-to-end test scaffold",
+  "scripts": {
+    "test": "playwright test",
+    "test:chromium": "playwright test --project=chromium-authenticated --project=chromium-login",
+    "test:api": "playwright test --config=playwright.api.config.ts",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:list": "playwright test --list",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@types/node": "latest",
+    "dotenv": "^18.0.10",
+    "typescript": "latest"
+  }
+}
