@@ -9,3 +9,6 @@ BASE_URL=http://localhost:3000 npm test
 
 Add environment-specific test configuration here once the target application's
 environments and requirements are known. Do not commit credentials or secrets.
+
+For the overall test scope and intentionally untested areas for the two target
+applications, see the [project README](../README.md#what-is-not-covered).

@@ -183,10 +183,61 @@ reported as a test failure: its existing test expects all three icons.
 - **Test note:** The current checkout test expects all three icons, so it does
   not currently detect this bug.
 
-### Useful next coverage
+## What is not covered
 
-These are gaps in the current specs, not a requirement to test every possible
-combination:
+The suite focuses on browser behavior for SauceDemo and CRUD behavior for the
+Restful Booker API. The following areas are not currently covered for these two
+applications:
+
+### SauceDemo
+
+- Wrong username/password combinations and both fields empty at once
+- Product detail pages and menu/logout flows
+- Left sidebar navigation, including all buttons and switching between its
+  views
+- Dynamic catalog behavior, tab changes, lazy loading, and spinner states
+- Verification of all possible catalog products, quantities, variants,
+  availability states, and lazy-loaded content
+- The About page
+- Reset App State functionality
+- Generate PDF order functionality
+- Adding multiple products, removing one while another remains, and preserving
+  cart contents across navigation or reload
+- Independent validation for missing last name and postal code
+- Checkout with multiple products and combined totals
+- Negative edge cases for login, sorting, catalog, cart, and checkout
+  functionality
+- Mobile and responsive layouts
+- Firefox and WebKit browsers
+- Accessibility, visual regression, security, and performance testing
+- Network failure, offline mode, and third-party service failure handling
+
+### Restful Booker API
+
+- `GET /booking` booking ID listing, including filtering by name and check-in
+  or check-out dates, combinations of filters, and empty results
+- `GET /booking/{id}` for an existing booking and edge cases for invalid,
+  malformed, and nonexistent IDs
+- `PATCH /booking/{id}` partial updates, including updating individual fields,
+  multiple fields, and verifying fields not included in the payload stay
+  unchanged
+- `GET /ping` health-check response, expected status, and response behavior
+  when the service is unavailable
+- Negative payload cases for create, full update, and partial update, including
+  missing required fields, invalid field types, invalid dates, empty payloads,
+  and boundary values
+- Unauthorized and invalid-token cases for protected update, partial-update,
+  and delete requests
+- Invalid query parameters, malformed requests, unsupported methods, and
+  unexpected content types
+- Pagination, sorting, concurrent updates, duplicate booking behavior, and
+  idempotency
+- Rate limits, security, load, stress, and performance testing
+
+These are documented limitations and gaps, not requirements to test every
+possible combination.
+
+### Useful next coverage
 
 - **Login:** wrong username/password combinations and both fields empty at once.
 - **Catalog/navigation:** product detail pages and menu/logout flows.
@@ -194,9 +245,9 @@ combination:
   cart contents after navigating away or reloading.
 - **Checkout:** validate missing last name and postal code independently; test
   checkout with multiple products and verify the combined totals.
-- **Booking API:** retrieve an existing booking, test booking filters, validate
-  invalid create/update payloads, and check that update/delete requests without
-  a token are rejected.
+- **Booking API:** exercise booking ID filters, retrieve existing bookings,
+  test partial updates and the health check, and cover invalid payloads,
+  malformed IDs, and requests without valid tokens.
 
 ## GitHub Actions
 
